@@ -1,0 +1,15 @@
+{% extends "dcslayout.html" %}
+{% block content %}
+<div class ="container-fluid">
+<h1>Analysis2</h1>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+<br><br>
+
+{{ tables | safe}}
+<br>
+
+
+</div>
+{% endblock %}

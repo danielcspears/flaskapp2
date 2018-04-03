@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lux/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lux/bootstrap.css"></script>
+    <html class="no-js">
+    <title>danielspears.com</title>
+    	
+<!--	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+	<meta http-equiv="expires" content="Sat, 31 Oct 2020 00:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">  
+   <title>Daniel Spears - Amazon Web Service - Elastic Beanstalk - Test</title>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Daniel C. Spears</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('about')}}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('analysis')}}">Analysis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('upload_file1')}}">Python Pandas</a>
+      </li>
+    </ul>
+  </div>
+</nav
+
+<div class="container-fluid">
+    <br><br>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

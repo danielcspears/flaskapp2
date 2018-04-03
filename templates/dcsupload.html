@@ -1,0 +1,14 @@
+{% extends "dcslayout.html" %}
+{% block content %}
+<div class="container">
+	<h1>Process a file...</h1> 
+	<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br><br>
+      <form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+      </div>
+{% endblock %} 
