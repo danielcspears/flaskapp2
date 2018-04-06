@@ -4,6 +4,7 @@
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lux/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lux/bootstrap.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <html class="no-js">
     <title>danielspears.com</title>
     	
@@ -15,6 +16,25 @@
 	<meta http-equiv="expires" content="Sat, 31 Oct 2020 00:00:00 GMT">
 	<meta http-equiv="pragma" content="no-cache">  
    <title>Daniel Spears - Amazon Web Service - Elastic Beanstalk - Test</title>
+ <style> /* set the CSS */
+    path {
+      stroke-width: 2;
+      fill: none;
+      stroke: #000080;
+    }
+    .axis path, .axis line {
+      fill: none;
+      stroke: blue;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+    }
+    .area {
+      fill: #F0F8FF;
+      stroke-width: 0;
+    }
+  </style>
+   
+   
   </head>
   <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,10 +52,7 @@
         <a class="nav-link" href="{{ url_for('about')}}">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('analysis')}}">Analysis</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('upload_file1')}}">Python Pandas</a>
+        <a class="nav-link" href="{{ url_for('upload_file1')}}">Upload</a>
       </li>
     </ul>
   </div>
