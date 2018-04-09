@@ -1,0 +1,171 @@
+{% extends "dcslayout.html" %} 
+{% block content %}
+<div class="container-fluid">
+    <h1 align="right">Case Note</h1>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <form action="http://localhost:5000/casenote" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+        <div class="row justify-content-end">
+            <div class="col">
+                <label for="name">First Name</label>
+                <input type="text" name="firstname">
+            </div>
+            <div class="col">
+                <label for="name">Last Name</label>
+                <input type="text" name="lastname">
+            </div>
+            <div class="col">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" value="male">
+
+                <label for="female">Female</label>
+                <input type="radio" name="gender" value="female">
+            </div>
+            <div class="col">
+                <label for="zipcode">Zipcode</label>
+                <input type="text" name="zipcode" size="10">
+
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-end">
+            <div class="col">
+                <label for="company">Company</label>
+                <input type="text" name="company" size="20">
+            </div>
+            <div class="col">
+                <label for="industry">Industry</label>
+                <input type="text" name="industry" size="20">
+            </div>
+            <div class="col">
+                <label for="years">Years of Exp</label>
+                <input type="text" name="years" size="2">
+            </div>
+            <div class="col">
+                <label for="job_title">Current Occupation</label>
+                <input type="text" name="job_title" size="20">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-end">
+            <div class="col">
+                <label for="des_title">Desired Occupation</label>
+                <input type="text" name="des_title" size="20">
+            </div>
+            <div class="col">
+                <label for="hour_wage">Recent Hourly Salary $</label>
+                <input type="text" name="hour_wage" size="5">
+            </div>
+            <div class="col">
+                <label for="exp_wage">Desired Hourly Salary $</label>
+                <input type="text" name="exp_wage" size="5">
+            </div>
+            <div class="col">
+                <input type="checkbox" name="willing" value="yes"> Check if Willing to Relocate
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label for="ctitle">Comments:  </label>
+                <input id="ctitle" type="textarea" name="comments" size="180"> </input>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label for="referrals">Referrals:    </label>
+                <input id="ctitle" type="textarea" name="referrals" size="180"> </input>
+            </div>
+        </div>
+
+        <br>
+        <h5>Strengths</h5>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Management/Supervisory Background">
+                <label for="mgmt">Management/Supervisory Background</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Public Speaking/Presentation ">
+                <label for="mgmt">Public Speaking/Presentation</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Customer Service ">
+                <label for="mgmt">Customer Service</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Multi-tasking ">
+                <label for="mgmt">Multi-tasking</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Organization/Planning ">
+                <label for="mgmt">Organization/Planning</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Coaching/Mentoring ">
+                <label for="mgmt">Coaching/Mentoring</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Gathering/Analyzing Data ">
+                <label for="mgmt">Gathering/Analyzing data</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Problem Solving ">
+                <label for="mgmt">Problem Solving</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Critical Thinking ">
+                <label for="mgmt">Critical Thinking</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Negotiating Skills ">
+                <label for="mgmt">Negotiating Skills</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="strength" value="Accuracy/Detail Oriented ">
+                <label for="mgmt">Accuracy/Detail oriented</label>
+            </div>
+        </div>
+        <h5>Barriers</h5>
+        <div class="row">
+            <div class="col-md-4">
+                <input type="checkbox" name="barrier" value="Poor Credit History"> 
+                <label for="mgmt">Poor Credit History</label>
+            </div>
+            <div class="col-md-4">  
+                <input type="checkbox" name="barrier" value="Lack or Limited Transportation">
+                <label for="mgmt">No or Limited Transportation</label>
+            </div>
+            <div class="col-md-4">
+                <input type="checkbox" name="barrier" value="Lack of Telephone/Internet"> 
+                <label for="mgmt">No Access to Telephone/Transportation</label>
+             </div>
+            <div class="col-md-4">   
+                <input type="checkbox" name="barrier" value="No Diploma nor GED"> 
+                <label for="mgmt">No GED nor Diploma</label>
+             </div>
+            <div class="col-md-4">   
+                <input type="checkbox" name="barrier" value="Facing Eviction or Homelss"> 
+                <label for="mgmt">Facing Eviction or Homess</label>
+              </div>
+            <div class="col-md-4">  
+                <input type="checkbox" name="barrier" value="Language Barriers"> 
+                <label for="mgmt">Language Barrier</label>
+            </div>
+</div>
+<br>
+        <input type="submit" class="btn btn-outline-primary"/>
+    </form>
+</div>
+{% endblock %}

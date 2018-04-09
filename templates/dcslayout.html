@@ -32,6 +32,16 @@
       fill: #F0F8FF;
       stroke-width: 0;
     }
+ input[type = "text"] {
+     border: 0;
+     outline: 0;
+     border-bottom: 2px solid Gray;
+}
+input[type = "textarea"] {
+     border: 0;
+     outline: 0;
+     border-bottom: 2px solid Gray;
+}
   </style>
    
    
@@ -54,12 +64,15 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ url_for('upload_file1')}}">Upload</a>
       </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('f_maker')}}">Case Note Generator 2.0</a>
+      </li>
     </ul>
   </div>
 </nav
 
 <div class="container-fluid">
-    <br><br>
+    <br>
       {% block content %}
       {% endblock %}
     </div>

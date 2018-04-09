@@ -9,11 +9,12 @@
 	<br>
 	<br>
 			<!-- <a class="nav-link" href="{{ url_for('chart_maker')}}">Make a chart</a> -->
+
 	<br>
 		<div class="container">
 			<center>
-				<h3>Chart</h3>
-				<h5>Data sourced from bls.gov using a python bot</h5>
+				<h3>{{ chart_title | safe }}</h3>
+				<h5>Data sourced from FRED </h5>
 			</center>
 		</div>
 		<div class="container-fluid">
