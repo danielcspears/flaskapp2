@@ -9,12 +9,15 @@
     <div class = "container-fluid"></div>
     <div class ="row">
       <form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
-         <input type = "file" name = "file" /> <br>
+         <input type = "file" name = "file" /> <br><br>
           <label for="skip">Number of rows to skip...</label>
           <input id ="skip" type = "number" name ="skrows"> </input>
           <label for="ctitle">Enter Chart Title</label>
-          <input id ="ctitle" type = "text" name ="chart_title"> </input>
-         <input type = "submit"/>
+          <input id ="ctitle" type = "text" name ="chart_title"> </input><br><br>
+            <label for="brush">Brush and Zoom Chart</label>
+          <input id ="brush" name ="action" value ="Brush" type = "submit"/><br><br>
+            <label for="line">Line/Area Chart</label>
+          <input id ="line" name="action" value ="Area" type = "submit"/>
       </form>
       </div></div>
 {% endblock %} 

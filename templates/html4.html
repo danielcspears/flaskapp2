@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Live Search Ajax Demo</title>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script>
+			function liveSearch(value){
+				value = value.trim(); // remove any spaces around the text
+				if(value != ""){ // don't make requests with an empty string
+					$.ajax({
+						url: "search",
+						data: {searchText: value},
+						dataType: "json",
+						success: function(data){
+							var res = "";
+							// create the html with results
+							for(i in data.results){
+								res += "<div>"+data.results[i]+"</div>";
+							}
+							$("#results").html(res);
+						}
+					});
+				}
+				else{
+					$("#results").html(""); // set the results empty in case of empty string
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Live Search Ajax Demo</h1>
+         <form action="{{ url_for('job_look') }}" method="POST" enctype="multipart/form-data">
+Enter a keyword search term for desired occupation:     
+		<input type="text" onkeyup="liveSearch(this.value)" name="Job" > <!-- Assigns the key up event to call the liveSearch() function -->
+		<br><br>
+		<div id="results"></div> <!-- Results will be printed here -->
+        <input type="submit" value="Submit"/>
+</form>
+	</body>
+</html>
