@@ -3,7 +3,9 @@
 	<head>
 		<title>Live Search Ajax Demo</title>
 		<meta charset="utf-8">
-		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.26/jquery.autocomplete.min.js"></script>
 		<script>
 			function liveSearch(value){
 				value = value.trim(); // remove any spaces around the text
@@ -14,12 +16,13 @@
 						dataType: "json",
 						success: function(data){
 							var res = "";
-							// create the html with results
 							for(i in data.results){
 								res += "<div>"+data.results[i]+"</div>";
+                                console.log(data);
 							}
 							$("#results").html(res);
 						}
+                        
 					});
 				}
 				else{
@@ -30,12 +33,13 @@
 	</head>
 	<body>
 		<h1>Live Search Ajax Demo</h1>
-         <form action="{{ url_for('job_look') }}" method="POST" enctype="multipart/form-data">
-Enter a keyword search term for desired occupation:     
-		<input type="text" onkeyup="liveSearch(this.value)" name="Job" > <!-- Assigns the key up event to call the liveSearch() function -->
+     <form action="{{ url_for('job_look') }}" method="POST" enctype="multipart/form-data">
+Enter a keyword search term for desired occupation:      
+		<input type="text" onkeyup="liveSearch(this.value)" name="Job"> <!-- Assigns the key up event to call the liveSearch() function -->
 		<br><br>
 		<div id="results"></div> <!-- Results will be printed here -->
         <input type="submit" value="Submit"/>
 </form>
+
 	</body>
 </html>

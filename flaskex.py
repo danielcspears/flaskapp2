@@ -18,16 +18,16 @@ application.config.update(dict(
 
 @application.route("/")
 def index():
-    return render_template("html4.html") # render the page
+    return render_template("html5.html") # render the page
 
-@application.route("/search")
-def search():
-	text = request.args['searchText'] # get the text to search for
-	# create an array with the elements of jobs that contains the string
-	# the case is ignored
-	result = [c for c in jobs if str(text).lower() in c.lower()]
-	# return as JSON
-	return json.dumps({"results":result}) 
+#@application.route("/search")
+#def search():
+#	text = request.args['searchText'] # get the text to search for
+#	# create an array with the elements of jobs that contains the string
+#	# the case is ignored
+#	result = [c for c in jobs if str(text).lower() in c.lower()]
+#	# return as JSON
+#	return json.dumps({"results":result}) 
 
 
 
@@ -71,19 +71,25 @@ if __name__ == "__main__":
 #for instance in session.query(Tasks).order_by(Tasks.id):
 #    print(instance.Job, instance.Task)
 
-@application.route("/joblook", methods = ['POST'])
-def job_look():
-    if request.method == 'POST':
-        filename = request.form['Job']
-#    result = session.query.with_entities(Tasks.Job, Tasks.Tasks)).filter(Tasks.Job.ilike('%'+filename+'%'))
-#        qry = session.query(Tasks.Job, Tasks.Task).filter(Tasks.Job.ilike('%'+filename+'%'))
-        qry = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+filename+'%'))
-        results = [item[0] for item in qry.all()]
-#        df = pd.DataFrame([results])
-        msg = '<br>'.join([str(i) for i in results])
-    return render_template("makeresu.html", results=msg)
+#@application.route("/joblook", methods = ['POST'])
+#def job_look():
+#    if request.method == 'POST':
+#        filename = request.form['Job']
+##    result = session.query.with_entities(Tasks.Job, Tasks.Tasks)).filter(Tasks.Job.ilike('%'+filename+'%'))
+##        qry = session.query(Tasks.Job, Tasks.Task).filter(Tasks.Job.ilike('%'+filename+'%'))
+#        qry = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+filename+'%'))
+#        results = [item[0] for item in qry.all()]
+##        df = pd.DataFrame([results])
+#        msg = '<br>'.join([str(i) for i in results])
+#    return render_template("makeresu.html", results=msg)
 
-
+@application.route("/autocomplete", methods=["GET"])
+def autocomplete():
+    results = []
+    search = request.args.get("autocomplete")
+    for mv in session.query(Tasks.Task).filter(Tasks.Job.like('%'+str(search)+'%')).all():
+        results.append(mv[0])
+    return jsonify(json_list=results) 
 
 
 if __name__ == "__main__":
