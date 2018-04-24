@@ -112,14 +112,15 @@ def job_look():
     # 
 
             qry = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+jobname+'%'))
-            results = [item[0] for item in qry.all()]
-            bullet = "•  "
-            msg = bullet + '<br> • '.join([str(i) for i in results])
+            results =  [item[0] for item in qry.all()]
+            
+            bullet = "<li class=\"list-group-item\">"
+            msg = bullet+"<li class=\"list-group-item\">".join([str(i) for i in results])
 
             qry2 = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+jobname2+'%'))
-            results2 = [item[0] for item in qry2.all()]
-            bullet = "•  "
-            msg2 = bullet + '<br> • '.join([str(i) for i in results2])
+            results2 =   [item[0] for item in qry2.all()]
+            bullet = "<li class=\"list-group-item\">"
+            msg2 = bullet + '<li class="list-group-item">'.join([str(i) for i in results2])
 
     return render_template("makeresu.html", results=msg, jobname = jobname, company=company, compcity=compcity, compstate= compstate, compyears=compyears, jobname2=jobname2,company2=company2, compcity2=compcity2, compstate2= compstate2, compyears2=compyears2, results2 = msg2)
 

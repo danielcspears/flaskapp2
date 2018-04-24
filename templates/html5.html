@@ -21,8 +21,8 @@
         }
         
         .alert {
-            height: 7%;
-            width: 40%;
+            height: 5%;
+            width: 35%;
         }
     </style>
 </head>
@@ -35,22 +35,23 @@
         {% for message in form.autojob.errors %}
     <div class="alert alert-dismissible alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4 class="alert-heading">{{message}}</h4>
+        <h5 class="alert-heading">{{message}}</h5>
     </div> {% endfor %}
-        <h4>Employer#1</h4>
+        <h5>Employer#1</h5>
         <form action="{{ url_for('job_look') }}" method="POST" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col">
+              <div class="form-group">
+        <div class="row justify-content-end">
+            <div class="col">
                     <br>{{ form.autojob.label }}:
                     <br> {{ form.autojob }}
                 </div>
-                <div class="col">
+             <div class="col">
                     <br> {{ form.company.label }}:
                     <br> {{ form.company }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+              <div class="row justify-content-end">
+            <div class="col">
                     <br> {{ form.compcity.label }}:
                     <br> {{ form.compcity }}
                 </div>
@@ -59,8 +60,8 @@
                     <br>{{ form.compstate }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+              <div class="row justify-content-end">
+            <div class="col">
             <br> {{ form.compyears.label }}:
             <br> {{ form.compyears }}
                 </div>
@@ -68,14 +69,14 @@
             <br> {% for message in form.autojob2.errors %}
             <div class="alert alert-dismissible alert-danger">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <h4 class="alert-heading">{{message}}</h4>
+                <h5 class="alert-heading">{{message}}</h5>
             </div>
             {% endfor %}
             
             
-            <h4>Employer#2</h4> 
-              <div class="row">
-                <div class="col">
+            <h5>Employer#2</h5> 
+                <div class="row justify-content-end">
+            <div class="col">
                     <br>{{ form.autojob2.label }}:
                     <br> {{ form.autojob2 }}
                 </div>
@@ -84,8 +85,8 @@
                     <br> {{ form.company2 }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+              <div class="row justify-content-end">
+            <div class="col">
                     <br> {{ form.compcity2.label }}:
                     <br> {{ form.compcity2 }}
                 </div>
@@ -94,12 +95,13 @@
                     <br>{{ form.compstate2 }}
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+        <div class="row justify-content-end">
+            <div class="col">
             <br> {{ form.compyears2.label }}:
             <br> {{ form.compyears2 }}
                 </div>
             </div>
+                  </div>
             <!--             <h2>Employer#3</h2>
         {{ form.autojob2.label }}:   {{ form.autojob2}}<br>
         {{ form.company3.label }}:   {{ form.company3 }}<br>
@@ -133,6 +135,7 @@
                     });
                 });
             </script>
+    
 
     </div>
 </body>
