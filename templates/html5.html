@@ -24,6 +24,8 @@
             height: 5%;
             width: 35%;
         }
+        
+        h6   {color: blue;}
     </style>
 </head>
 
@@ -32,12 +34,13 @@
     <br>
     <br>
     <div class="container">
+        <center><img src="/static/logo.jpg" alt="Daniel Spears"></center><br>
         {% for message in form.autojob.errors %}
     <div class="alert alert-dismissible alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h5 class="alert-heading">{{message}}</h5>
     </div> {% endfor %}
-        <h5>Employer#1</h5>
+        <h6>Employer#1</h6>
         <form action="{{ url_for('job_look') }}" method="POST" enctype="multipart/form-data">
               <div class="form-group">
         <div class="row justify-content-end">
@@ -74,7 +77,7 @@
             {% endfor %}
             
             
-            <h5>Employer#2</h5> 
+            <h6>Employer#2</h6> 
                 <div class="row justify-content-end">
             <div class="col">
                     <br>{{ form.autojob2.label }}:

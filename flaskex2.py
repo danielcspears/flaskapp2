@@ -8,6 +8,7 @@ from pandas.io.json import json_normalize
 from states import states
 
 from jobs import jobs
+from jobs2 import jobs2
 from flask_sqlalchemy import SQLAlchemy 
 
 application = Flask(__name__)   
@@ -44,7 +45,8 @@ class SearchForm(Form):
     
 @application.route('/_autocomplete', methods=['GET'])
 def autocomplete():
-    return Response(json.dumps(jobs), mimetype='application/json')
+    field = list(jobs2.keys())
+    return Response(json.dumps(field), mimetype='application/json')
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
@@ -111,16 +113,28 @@ def job_look():
     #        compyears3 = request.form['compyears3']
     # 
 
-            qry = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+jobname+'%'))
+            for key, value in jobs2.items():    
+                if key == jobname:
+                    jobnamev = value
+#            qry = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+jobname+'%'))
+            qry = session.query(Tasks.Task).filter(Tasks.Job == jobnamev)
             results =  [item[0] for item in qry.all()]
-            
-            bullet = "<li class=\"list-group-item\">"
-            msg = bullet+"<li class=\"list-group-item\">".join([str(i) for i in results])
-
-            qry2 = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+jobname2+'%'))
+#            bullet = "<li class=\"list-group-item\">"
+#            msg = bullet+"<li class=\"list-group-item\">".join([str(i) for i in results])
+            bullet = "<li>•&nbsp;&nbsp;"
+            msg = bullet+"<li>•&nbsp;&nbsp;".join([str(i) for i in results])
+        
+        
+            for key, value in jobs2.items():    
+                if key == jobname2:
+                    jobnamev2 = value
+#            qry2 = session.query(Tasks.Task).filter(Tasks.Job.ilike('%'+jobname2+'%'))
+            qry2 = session.query(Tasks.Task).filter(Tasks.Job == jobnamev2)
             results2 =   [item[0] for item in qry2.all()]
-            bullet = "<li class=\"list-group-item\">"
-            msg2 = bullet + '<li class="list-group-item">'.join([str(i) for i in results2])
+#            bullet = "<li class=\"list-group-item\">"
+#            msg2 = bullet + '<li class="list-group-item">'.join([str(i) for i in results2])
+            bullet = "<li>•&nbsp;&nbsp;"
+            msg2 = bullet + '<li>•&nbsp;&nbsp;'.join([str(i) for i in results2])
 
     return render_template("makeresu.html", results=msg, jobname = jobname, company=company, compcity=compcity, compstate= compstate, compyears=compyears, jobname2=jobname2,company2=company2, compcity2=compcity2, compstate2= compstate2, compyears2=compyears2, results2 = msg2)
 

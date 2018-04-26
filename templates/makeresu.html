@@ -6,15 +6,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.js"></script>
+    <style>
+        ul{
+            list-style-type:none;
+        }
+        .myTitleClass .ui-dialog-titlebar{
+          background:#e6f3ff;
+        }
+    </style>
 </head>
 
 <body>
-            <div id="dialog" title="Basic dialog">
+            <div id="dialog" title="Job Tasks">
             <p>Remove tasks in the list with a click.</p>
         </div>
     <div class="container">
-        <h3>Work Experience:</h3>
-
+ <h3>Work Experience:</h3>
+<br>
+<!--
         <b>{{jobname}}</b>
         <br>
         <div class="row">
@@ -28,6 +37,13 @@
             <div class="col">
                 {{compyears}} </div>
         </div>
+-->
+              <b>{{jobname}}</b>
+        <br>
+                {{company}}<br>
+                {{compcity}},&nbsp;&nbsp;{{compstate}}
+                <br>
+                {{compyears}} 
         <br>
         <br>
         <ul class="list-group"  id="ul">
@@ -38,6 +54,7 @@
 
         <b>{{jobname2}}</b>
         <br>
+<!--
         <div class="row">
             <div class="col">
                 {{company2}}
@@ -49,6 +66,12 @@
             <div class="col">
                 {{compyears2}}</div>
         </div>
+-->
+        
+                {{company2}}<br>
+                {{compcity2}},&nbsp;&nbsp;{{compstate2}}
+                <br>
+                {{compyears2}}
         <br>
         <br>
         <ul class="list-group" id="ul">
@@ -64,11 +87,15 @@
     <script>
         $(function() {
             $("#dialog").dialog(
-                { position: { my: "right top", at:"right+100 top+100", of:"body" } }
+                {
+                    dialogClass: 'myTitleClass',
+                    position: { 
+                    my: "right top", at:"right+100 top+100", of:"body" 
+                    } 
+                }
             );
         });
     </script>
-    >
 </body>
 
 </html>
